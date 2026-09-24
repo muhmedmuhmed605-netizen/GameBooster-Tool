@@ -1,40 +1,19 @@
-import time
-
-class FloatingMenuOverlay:
-    def __init__(self):
-        self.is_visible = False
-        self.active_features = {
-            "RAM Booster": True,
-            "ESP Overlay": False,
-            "Aimbot Lock": False
-        }
-
-    def toggle_floating_menu(self):
-        self.is_visible = not self.is_visible
-        if self.is_visible:
-            print("[UI] Floating Menu Opened over game interface.")
-            self.show_menu_options()
-        else:
-            print("[UI] Floating Menu Minimized to icon.")
-
-    def show_menu_options(self):
-        print("\n--- DAUWOOD'ْس FLOATING PANEL ---")
-        for feature, status in self.active_features.items():
-            state = "ENABLED [ON]" if status else "DISABLED [OFF]"
-            print(f" > {feature}: {state}")
-        print("--------------------------------")
-
-    def modify_feature_state(self, feature_name, state: bool):
-        if feature_name in self.active_features:
-            self.active_features[feature_name] = state
-            print(f"[UI Update] {feature_name} set to {state}")
-
-if __name__ == "__main__":
-    overlay_ui = FloatingMenuOverlay()
-    overlay_ui.toggle_floating_menu()
-    
-    # تفعيل الميزات الفعلية من القائمة
-    overlay_ui.modify_feature_state("ESP Overlay", True)
+Floating Menu UI Design Prompt:
+Image Type: A hyper-realistic, close-up photograph of a modern Android smartphone screen.
+Background: The phone screen must be actively displaying a detailed, action-packed battle royale game (like PUBG Mobile or a similar game with detailed characters and a battlefield).
+Overlay (The Floating Menu): Centered slightly to the left, a sophisticated, semi-transparent floating menu window is overlaid on top of the game.
+Menu Design:
+Window: A sleek, rounded-corner, dark-mode panel (deep charcoal black with a slight 3D depth effect and a subtle green neon glow outline). The background of the panel is semi-transparent, allowing the game to be faintly visible underneath.
+Header: At the top of the menu, a prominent, stylized white and green title: DAUWOOD'S ULTIMATE GAME BOOSTER V2. Below it, a small, green, pulsing "ACTIVE" status indicator.
+Menu Items (Toggles): A list of three distinct toggles with custom icons:
+RAM Booster: A stylized "RAM chip" icon in green. The toggle switch is clearly set to ON (using a bright green slider).
+ESP Overlay: A stylized "Radar" icon in green. The toggle switch is clearly set to ON.
+Aimbot Lock: A stylized "Target Reticle" icon in red. The toggle switch is clearly set to ON.
+Text: All menu text (labels and values) is clean, legible, white, and glowing green. The ON values are highlighted in bright green.
+Buttons: At the very bottom of the panel, two clean, action buttons with green borders: [ Minimize ] and [ Close ].
+Floating Icon: A small, semi-transparent, circular icon (a gear and shield in green) floats outside the main menu window, acting as the "minimized" launcher button.
+Lighting: The entire menu must have a soft, internal neon green glow, contrasting sharply with the darker background of the game and the menu panel itself. The overall feel is premium, functional, and stealthy.
+Composition: The phone is held slightly angled in two hands (showing a bit of the user's fingers on the black bezel), making the menu the primary focus of the screen.    overlay_ui.modify_feature_state("ESP Overlay", True)
     overlay_ui.modify_feature_state("Aimbot Lock", True)
     
     overlay_ui.show_menu_options()
