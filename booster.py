@@ -1,36 +1,24 @@
 import psutil
-import time
 
 def advanced_memory_and_process_analyzer():
     print("[*] Initializing Advanced Game Booster & Memory Analysis Engine...")
-    time.sleep(1)
     
-    # فحص تفصيلي للذاكرة العشوائية (RAM)
+    # فحص الذاكرة العشوائية (RAM) - يعمل بكفاءة وبدون مشاكل صلاحيات
     mem = psutil.virtual_memory()
-    print(f"[+] Total RAM: {mem.total / (1024 ** 3):.2f} GB")
-    print(f"[+] Used RAM: {mem.percent}%")
-    print(f"[+] Available RAM: {mem.available / (1024 ** 2):.2f} MB")
+    total_ram_gb = mem.total / (1024 ** 3)
+    used_ram_percent = mem.percent
+    available_ram_mb = mem.available / (1024 ** 2)
     
-    # فحص استهلاك المعالج (CPU)
-    cpu_usage = psutil.cpu_percent(interval=1)
-    print(f"[+] Current CPU Usage: {cpu_usage}%")
+    print(f"[+] Total RAM: {total_ram_gb:.2f} GB")
+    print(f"[+] Used RAM: {used_ram_percent}%")
+    print(f"[+] Available RAM: {available_ram_mb:.2f} MB")
     
-    print("\n[*] Scanning active processes for performance tuning...")
-    target_process = None
-    
-    # المرور على العمليات الجارية للبحث عن أي تطبيق ثقيل أو تحليل هيكله
-    for proc in psutil.process_iter(['pid', 'name', 'memory_info']):
-        try:
-            pinfo = proc.info
-            # محاكاة لفحص الذاكرة وتتبع العمليات النشطة
-            if pinfo['memory_info'] and pinfo['memory_info'].rss > (50 * 1024 * 1024): # العمليات التي تستهلك أكثر من 50 ميجابايت
-                # ميزة إضافية لفحص وتتبع الذاكرة المؤقتة (Memory Hooking / Inspection Logic Simulation)
-                pass
-        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
-            continue
-
-    print("[✓] Memory inspection and process scan completed successfully.")
-    print("[*] System ready for high-performance gaming mode.")
+    # محاولة قراءة استخدام المعالج بطريقة آمنة تتجاوز قيود أندرويد
+    try:
+        cpu_usage = psutil.cpu_percent(interval=1)
+        print(f"[+] CPU Usage: {cpu_usage}%")
+    except Exception:
+        print("[!] CPU usage restricted by Android sandbox (Non-Root mode), skipping...")
 
 if __name__ == "__main__":
     advanced_memory_and_process_analyzer()
