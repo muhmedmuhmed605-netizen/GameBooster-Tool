@@ -11,6 +11,6 @@ fullscreen = 1
 android.permissions = INTERNET,SYSTEM_ALERT_WINDOW
 android.api = 33
 android.min_api = 21
-android.sdk = 33
 android.ndk = 25b
 android.archs = arm64-v8a
+android.accept_sdk_license = True
